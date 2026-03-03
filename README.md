@@ -33,7 +33,7 @@ No `.env` files needed. SQLite database is created automatically on first run.
 | Layer    | Technology                                                            |
 | -------- | --------------------------------------------------------------------- |
 | Backend  | Python 3.12, FastAPI, SQLAlchemy (async), SQLite + aiosqlite, uvicorn |
-| Scraping | httpx, BeautifulSoup4                                                 |
+| Metadata | httpx, BeautifulSoup4                                                 |
 | Frontend | React 19, TypeScript, Vite, TanStack React Query, Axios               |
 | UI       | Tailwind CSS, shadcn/ui (Radix), Sonner                               |
 
@@ -79,3 +79,9 @@ React Components → TanStack Query hooks → API Factory → Repositories → A
 - All server state is managed by TanStack Query
 - Mutations invalidate the query cache on success rather than using optimistic updates, keeping the UI consistent with server state
 - `api/factory.ts` wires together repositories; consumers import `api` from `@/api` and call `api.bookmarks.*`
+
+---
+
+## What I'd Add With Another Hour
+
+With more time I'd add pytest coverage for the backend service and repository layers and Vitest tests for the React hooks and components. On the product side: stricter URL validation with user-friendly error messages on the frontend, the ability to edit or remove individual tags, a search/filter bar to query bookmarks by title or tag, and server-side pagination with a cursor for large bookmark collections.
